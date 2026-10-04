@@ -333,7 +333,12 @@ def mission_upload(target, waypoints):
 ##########################################################################################
 def main():
     # Establish serial connection to the joystick
-    serialConnection = serial.Serial("COM5", 115200, timeout=0)   # check Device Manager for your port
+    com_port = sys.argv[2]
+    if not com_port:
+        print("Usage: python mvlinkScript.py mission.json COM# or mvlinkScript.py tcp:LOCAL_HOST_IP:ArduPilot_PORT COM#")
+        sys.exit(1)
+
+    serialConnection = serial.Serial(com_port, 115200, timeout=0)   # check Device Manager for your port
 
     last_joy = time.time()
     prev_button = 0
@@ -345,10 +350,10 @@ def main():
 
     # Commandline arguments to parse device connection
     device = None
-    if (len(sys.argv) > 2):
-        print("Usage: python mvlinkScript.py mission.json or mvlinkScript.py tcp:LOCAL_HOST_IP:ArduPilot_PORT")
+    if (len(sys.argv) > 3):
+        print("Usage: python mvlinkScript.py mission.json COM# or mvlinkScript.py tcp:LOCAL_HOST_IP:ArduPilot_PORT COM#")
         sys.exit(1)
-    elif (len(sys.argv) == 2):
+    elif (len(sys.argv) == 3):
         if (sys.argv[1] == "mission.json"):
             # Grab stuff from .json
             json_file = sys.argv[1] 
@@ -520,7 +525,6 @@ def main():
                 f"Batt {drone['Voltage']:.1f}V |")
             print("-------------------------------------------------------------------------")
 
-        print("waiting:", serialConnection.in_waiting)
         if (state == "MANUAL"):
             joy = read_joystick(serialConnection)
             if (joy):
