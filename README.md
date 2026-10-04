@@ -1,4 +1,6 @@
-<img width="886" height="592" alt="image" src="https://github.com/user-attachments/assets/dc6e4068-8ca6-49ee-9012-f9d0332093fa" />### HOW TO RUN:
+<img width="886" height="592" alt="image" src="https://github.com/user-attachments/assets/dc6e4068-8ca6-49ee-9012-f9d0332093fa" />
+
+### HOW TO RUN:
 
     There are two ways to run:
     (1) Create/upload your own plan in Mission Planner
