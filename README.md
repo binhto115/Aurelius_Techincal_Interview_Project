@@ -1,4 +1,4 @@
-### HOW TO RUN:
+<img width="886" height="592" alt="image" src="https://github.com/user-attachments/assets/dc6e4068-8ca6-49ee-9012-f9d0332093fa" />### HOW TO RUN:
 
     There are two ways to run:
     (1) Create/upload your own plan in Mission Planner
@@ -62,6 +62,9 @@
                 SW            =>          D2
 
         *** Test the Arduino board with the joystick with Serial monitor first before the whole program to make sure it prints "500, 0"
+        Flowchart:
+        <img width="886" height="592" alt="image" src="https://github.com/user-attachments/assets/5a425370-fcf6-4f6b-92fe-7ccad76077d9" />
+
 
 ### Limitations:
 
