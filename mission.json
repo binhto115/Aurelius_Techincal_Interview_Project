@@ -1,0 +1,12 @@
+{
+    "connection": "tcp:127.0.0.1:5762",
+    "home": { "lat": 37.6217268, "long": -122.37128, "alt": 3.64 },
+    "mission": [
+        { "type": "takeoff", "lat": 0, "long": 0, "alt": 10 },
+        { "type": "waypoint", "lat": 37.6250495, "long": -122.3715699, "alt": 5, "speed": 10 },
+        { "type": "waypoint", "lat": 37.6253639, "long": -122.3733294, "alt": 5, "speed": 5 },
+        { "type": "waypoint", "lat": 37.6249135, "long": -122.3748529, "alt": 10 },
+        { "type": "rtl", "lat": 0.0, "long": 0.0, "alt": 0.0 }
+    ]
+
+}
