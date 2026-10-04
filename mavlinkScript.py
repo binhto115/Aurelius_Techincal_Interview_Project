@@ -332,6 +332,22 @@ def mission_upload(target, waypoints):
 # RUN MAIN
 ##########################################################################################
 def main():
+    # Commandline arguments to parse device connection
+    device = None
+    if (len(sys.argv) > 3):
+        print("Usage: python mvlinkScript.py mission.json COM# or mvlinkScript.py tcp:LOCAL_HOST_IP:ArduPilot_PORT COM#")
+        sys.exit(1)
+    elif (len(sys.argv) == 3):
+        if (sys.argv[1] == "mission.json"):
+            # Grab stuff from .json
+            json_file = sys.argv[1] 
+            device, home, mission = json_parser(json_file)
+        else: 
+            device = sys.argv[1]
+    else:
+        print("Usage: python mvlinkScript.py mission.json COM# or mvlinkScript.py tcp:LOCAL_HOST_IP:ArduPilot_PORT COM#")
+        sys.exit(1)
+    
     # Establish serial connection to the joystick
     com_port = sys.argv[2]
     if not com_port:
@@ -348,19 +364,6 @@ def main():
     last_print = 0.0
     PRINT_INTERVAL = 5.0 # 5s per print
 
-    # Commandline arguments to parse device connection
-    device = None
-    if (len(sys.argv) > 3):
-        print("Usage: python mvlinkScript.py mission.json COM# or mvlinkScript.py tcp:LOCAL_HOST_IP:ArduPilot_PORT COM#")
-        sys.exit(1)
-    elif (len(sys.argv) == 3):
-        if (sys.argv[1] == "mission.json"):
-            # Grab stuff from .json
-            json_file = sys.argv[1] 
-            device, home, mission = json_parser(json_file)
-        else: 
-            device = sys.argv[1]
-
     # Establish connection to the flight controller
     mavConnect = mavutil.mavlink_connection(device)
 
@@ -375,7 +378,7 @@ def main():
     request_message(mavConnect, 0, 5)
 
     # Only set home and upload mission plan if mission.json filed is given
-    if (len(sys.argv) == 2 and (sys.argv[1] == "mission.json")):
+    if (len(sys.argv) == 3 and (sys.argv[1] == "mission.json")):
         # Set Home
         set_home(mavConnect, home)
 

@@ -71,6 +71,7 @@
     - Limits to simple four commands: takeoff, waypoints, return-to-launch, and joy.
     - Two modes: AUTO and GUIDED
     - Joystick can only allow you to rotate and turn on/off the drone
+    - Interrupting the program (CRTL + C) would not stop the drone from flying. Should just RTL back.
 
 ### Additional improvements I would make with more time:
 
