@@ -10,8 +10,8 @@
                 a. Go to 'Simulation' tab, choose model 'Quad', frame 'Multirotor'
                 b. Make sure it's TCP at 115200, and choose your port
                 b. Create/upload your plan then write it
-                c. Run python mavlinkScript.py tcp:{LOCAL_HOST_IP}:{ArduPilot_PORT}
-                For example, in my case: python mavlinkScript.py tcp:127.0.0.1:5762
+                c. Run python mavlinkScript.py tcp:{LOCAL_HOST_IP}:{ArduPilot_PORT} COM#
+                For example, in my case: python mavlinkScript.py tcp:127.0.0.1:5762 COM7
 
             if (2):
                 a. Go to 'Simulation' tab, choose model 'Quad', frame 'Multirotor'
@@ -25,7 +25,7 @@
 
                     ***There can only be 3 types: takeoff, waypoint, and rtl. takeoff goes first and rtl goes last. You can have as many waytpoints as needed. Leave the "speed" parameter blank for default speed***
 
-                d. run python mavlinkScript.py mission.json
+                d. run python mavlinkScript.py mission.json COM#
                 e. Observe the magic!!!
 
     [Bonus] - Can be used for both ways
@@ -64,9 +64,6 @@
                 SW            =>          D2
 
         *** Test the Arduino board with the joystick with Serial monitor first before the whole program to make sure it prints "500, 0"
-        Flowchart:
-        <img width="886" height="592" alt="image" src="https://github.com/user-attachments/assets/5a425370-fcf6-4f6b-92fe-7ccad76077d9" />
-
 
 ### Limitations:
 
