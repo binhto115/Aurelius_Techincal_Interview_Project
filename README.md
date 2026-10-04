@@ -8,7 +8,7 @@
                 a. Go to 'Simulation' tab, choose model 'Quad', frame 'Multirotor'
                 b. Make sure it's TCP at 115200, and choose your port
                 b. Create/upload your plan then write it
-                c. Run python mavlinkScript.py tcp:LOCAL_HOST_IP:ArduPilot_PORT
+                c. Run python mavlinkScript.py tcp:{LOCAL_HOST_IP}:{ArduPilot_PORT}
                 For example, in my case: python mavlinkScript.py tcp:127.0.0.1:5762
 
             if (2):
@@ -18,6 +18,8 @@
                     i. "connection": estalish connection from your localhost machine to the drone
                     ii. "home": sets the coordinates for new home, or leave the same coordiates for the same one
                     iii. "mission": customizes your latitude, longitude, altitude, and/or speed.
+
+                    Use the given mission.json to edit/adjust
 
                     ***There can only be 3 types: takeoff, waypoint, and rtl. takeoff goes first and rtl goes last. You can have as many waytpoints as needed. Leave the "speed" parameter blank for default speed***
 
@@ -63,7 +65,7 @@
 
 ### Limitations:
 
-    - Limits to quad multirotor
+    - Limits to ONLY quad multirotor
     - Limits to simple four commands: takeoff, waypoints, return-to-launch, and joy.
     - Two modes: AUTO and GUIDED
     - Joystick can only allow you to rotate and turn on/off the drone
@@ -71,15 +73,15 @@
 ### Additional improvements I would make with more time:
 
     - Well-made responsive UI for RT controls and vehicle information
-    - A functional option to switch vehicles and models
+    - A functional option to switch vehicles and models (more vehicle variety)
     - Add a throttle control to the drone
     - Obstacle avoidance/detection feature
 
 ### Additional Information (Optional reading):
 
-    Architechture:
+    Architecture:
         Mission Planner           ==> ArduCopter.exe SITL Flight Controler via MAVLink TCP 5760
-        Python program pymavlink  ==> ArduCopter.exe SITL Flight Controller via MAVLink TCP 5760
+        Python program pymavlink  ==> ArduCopter.exe SITL Flight Controller via MAVLink TCP 5762
         (My pc -> ArduCopter.exe -> Simulated drone)
 
     TCP connection Debugging
